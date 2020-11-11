@@ -6,7 +6,8 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('guildMemberAdd', member => { 
+client.on('guildMemberAdd', member => {
+    console.log('Here!');
     member.guild.channels.get('channelID').send("Welcome");
 });
 
