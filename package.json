@@ -1,7 +1,8 @@
 {
     "dependencies": {
         "discord.js": "^12.4.1",
-        "request": "2.81.0"
+        "request": "2.81.0",
+        "websocket": "1.0.32"
     },
     "description": "Example",
     "main": "bot.js",
