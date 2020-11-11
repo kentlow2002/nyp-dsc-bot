@@ -5,7 +5,7 @@
     },
     "description": "Example",
     "main": "bot.js",
-    "name": "Example",
+    "name": "example",
     "scripts": {
         "start": "node bot.js"
     },
