@@ -6,9 +6,11 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', (member) => {
     console.log('Here!');
-    member.guild.channels.get('channelID').send("Welcome");
+    const guild = member.guild;
+    const channel = guild.channels.find(channel => channel.name === "entry-logs");
+    channel.cache.send("Hello!");
 });
 
 // THIS  MUST  BE  THIS  WAY
