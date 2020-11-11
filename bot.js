@@ -7,10 +7,8 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', (member) => {
-    console.log('Here!');
-    const guild = member.guild;
-    const channel = guild.channels.find(channel => channel.name === "entry-logs");
-    channel.cache.send("Hello!");
+    const defChannel = client.channels.fetch("776009068610977792");
+    defChannel.send("yo");
 });
 
 // THIS  MUST  BE  THIS  WAY
