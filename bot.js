@@ -7,8 +7,12 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', (member) => {
-    member.guild.channels.cache.get("776009068610977792").send('new member');
-    member.roles.add(member.guild.roles.cache.get("776017709543850025"));
+    member.guild.channels.fetch("776009068610977792")
+        .then(ch => ch.send("new member"))
+        .catch(console.log("message went wrong!"));
+    member.guild.roles.fetch("776017709543850025")
+        .then(role => member.roles.add(role))
+        .catch(console.log("role went wrong!"));
     
 });
 
