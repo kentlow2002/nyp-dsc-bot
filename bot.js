@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', (member) => {
-    member.guild.channels.cache.get("776009068610977792").send("new member");
+    member.guild.channels.cache.get("776009068610977792").send("Welcome @<"+member.id+"> ! Enjoy your stay here :> .");
     member.guild.roles.fetch("776017709543850025")
         .then(role => member.roles.add(role))
         .catch(error => {
