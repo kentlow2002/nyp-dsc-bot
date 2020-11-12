@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', (member) => {
-    const channel = client.channels.cache.get("776009068610977792");
+    const channel = member.guild.channels.cache.get("776009068610977792");
     channel.send("hello");
 });
 
