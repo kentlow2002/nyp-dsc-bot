@@ -6,9 +6,9 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('guildMemberAdd', (member) => {
-    client.channels.cache.find("name", "entry-logs").send("hello");
-    defChannel.send("yo");
+client.on('message', (member) => {
+    const channel = client.channels.cache.get("776009068610977792");
+    channel.send("hello");
 });
 
 // THIS  MUST  BE  THIS  WAY
