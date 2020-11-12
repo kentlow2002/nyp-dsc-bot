@@ -8,6 +8,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', (member) => {
     const channel = member.guild.channels.cache.get("776009068610977792");
+    channel.send('new member');
     const publicRole = member.guild.roles.find(role => role.name === "Public");
     member.roles.add(publicRole);
 });
