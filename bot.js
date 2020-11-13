@@ -8,12 +8,8 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', (member) => {
     member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :> .");
-    member.guild.roles.cache.find(r => r.name === "Public")
-        .then(role => member.roles.add(role))
-        .catch(error => {
-            console.log("public role assignment went wrong!");
-            console.log(error);
-        });
+    const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
+    member.roles.add(pubRole);
     
 });
 
