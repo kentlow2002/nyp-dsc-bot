@@ -6,6 +6,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+//add public role upon entry
 client.on('guildMemberAdd', (member) => {
     member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :> .");
     const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
@@ -14,7 +15,8 @@ client.on('guildMemberAdd', (member) => {
 });
 
 client.on('message', message => {
-    if (message.channel.name === "verify") {
+    if (message.channel.name === "verify" && message.content === "123456") {
+        console.log("code detected!");
         
     }
 });
