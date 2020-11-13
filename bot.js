@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
- 
+const pg = require('pg');
+
+const pgClient = pg({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -17,7 +24,7 @@ client.on('guildMemberAdd', (member) => {
 client.on('message', message => {
     const patt = /^[0-9]{6}$/;
     if (message.channel.name === "verify" && message.content.match(patt)) {
-        
+
     }
 });
 
