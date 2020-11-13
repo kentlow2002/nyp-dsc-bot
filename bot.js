@@ -7,14 +7,20 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', (member) => {
-    member.guild.channels.cache.get("776009068610977792").send("Welcome <@"+member.id+"> ! Enjoy your stay here :> .");
+    member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :> .");
     member.guild.roles.fetch("776017709543850025")
         .then(role => member.roles.add(role))
         .catch(error => {
-            console.log("role went wrong!");
+            console.log("public role assignment went wrong!");
             console.log(error);
         });
     
+});
+
+client.on('message', message => {
+    if (message.channel.name === "verify") {
+        
+    }
 });
 
 // THIS  MUST  BE  THIS  WAY
