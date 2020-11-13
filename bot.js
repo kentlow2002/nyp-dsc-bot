@@ -15,7 +15,8 @@ client.on('guildMemberAdd', (member) => {
 });
 
 client.on('message', message => {
-    if (message.channel.name === "verify" && message.content === "123456") {
+    const patt = /\b[0-9]{6}\b/;
+    if (message.channel.name === "verify" && message.content.match(patt)) {
         console.log("code detected!");
         
     }
