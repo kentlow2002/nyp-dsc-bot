@@ -15,10 +15,12 @@ client.on('guildMemberAdd', (member) => {
     })
     .then(
         () => {
-            doc.loadInfo().then((loadedDoc) => console.log(loadedDoc.title));
+            doc.loadInfo()
+                .then(loadedDoc => console.log(loadedDoc.title))
+                .catch(error => console.log(`wow doc load fail heres ur shitty error\n${error}`));
         }
     )
-        .catch(error => { console.log("oops doc load fail"); console.log(error); });
+    .catch(error => { console.log("oops doc auth fail"); console.log(error); });
     const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
     member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :>");
     member.roles.add(pubRole);
