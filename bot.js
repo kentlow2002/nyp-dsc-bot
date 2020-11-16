@@ -22,7 +22,7 @@ client.on('guildMemberAdd', (member) => {
                         sheet = doc.sheetsById[1564289141];
                         sheet.loadCells("A:B")
                             .then(
-                                (data) => console.log(data)
+                                () => console.log(sheet)
                             )
                             .catch(
                                 (error) => console.log(error)
