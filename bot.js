@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 //add public role upon entry
 client.on('guildMemberAdd', (member) => {
-    const sheet = new GoogleSpreadsheetWorksheet;
+    const sheet = new GoogleSpreadsheetWorksheet();
     const doc = new GoogleSpreadsheet("1wyaGvhrTkjPn8aTFV3Os0Jn8zd0Ij0ooLr0UOTW6HcI");
     doc.useServiceAccountAuth({
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
