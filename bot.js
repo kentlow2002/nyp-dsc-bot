@@ -16,7 +16,7 @@ client.on('guildMemberAdd', (member) => {
     .then(
         () => {
             doc.loadInfo()
-                .then(loadedDoc => console.log(loadedDoc))
+                .then(doc => console.log(doc))
                 .catch(error => console.log(`wow doc load fail heres ur shitty error\n${error}`));
         }
     )
