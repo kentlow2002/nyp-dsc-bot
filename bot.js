@@ -13,14 +13,12 @@ client.on('guildMemberAdd', (member) => {
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
         private_key: process.env.GOOGLE_PRIVATE_KEY,
     })
-        .then(
-            () => {
-                doc.loadInfo().then((loadedDoc) => console.log(loadedDoc.title));
-            }
-        )
-        .catch(
-            console.log("oops doc load fail");
-        );
+    .then(
+        () => {
+            doc.loadInfo().then((loadedDoc) => console.log(loadedDoc.title));
+        }
+    )
+    .catch(error => console.log("oops doc load fail"));
     const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
     member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :>");
     member.roles.add(pubRole);
