@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } = require('google-spreadsheet');
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -8,6 +8,7 @@ client.on('ready', () => {
 
 //add public role upon entry
 client.on('guildMemberAdd', (member) => {
+    const sheet = new GoogleSpreadsheetWorksheet;
     const doc = new GoogleSpreadsheet("1wyaGvhrTkjPn8aTFV3Os0Jn8zd0Ij0ooLr0UOTW6HcI");
     doc.useServiceAccountAuth({
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -17,7 +18,7 @@ client.on('guildMemberAdd', (member) => {
         () => {
             doc.loadInfo()
                 .then(
-                    () => console.log(doc.sheetsById[1564289141])
+                    () => { sheet = doc.sheetsById[1564289141] }
                 )
                 .catch(error => console.log(`wow doc load fail heres ur shitty error\n${error}`));
         }
