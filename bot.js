@@ -11,7 +11,7 @@ client.on('guildMemberAdd', (member) => {
     const doc = new GoogleSpreadsheet("1wyaGvhrTkjPn8aTFV3Os0Jn8zd0Ij0ooLr0UOTW6HcI");
     doc.useServiceAccountAuth({
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY,
+        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g,'\n'),
     })
     .then(
         () => {
