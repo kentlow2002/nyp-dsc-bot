@@ -18,7 +18,17 @@ client.on('guildMemberAdd', (member) => {
         () => {
             doc.loadInfo()
                 .then(
-                    () => { sheet = doc.sheetsById[1564289141] }
+                    () => {
+                        sheet = doc.sheetsById[1564289141];
+                        sheet.loadCells("A:B")
+                            .then(
+                                (data) => console.log(data)
+                            )
+                            .catch(
+                                (error) => console.log(error)
+                            );
+
+                    }
                 )
                 .catch(error => console.log(`wow doc load fail heres ur shitty error\n${error}`));
         }
