@@ -18,7 +18,7 @@ client.on('guildMemberAdd', (member) => {
             doc.loadInfo().then((loadedDoc) => console.log(loadedDoc.title));
         }
     )
-    .catch(error => console.log("oops doc load fail"));
+        .catch(error => { console.log("oops doc load fail"); console.log(error); });
     const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
     member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :>");
     member.roles.add(pubRole);
