@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const GoogleSpreadsheet = require('google-spreadsheet');
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -7,17 +8,18 @@ client.on('ready', () => {
 
 //add public role upon entry
 client.on('guildMemberAdd', (member) => {
-    member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :> .");
+    const doc = new GoogleSpreadsheet("1wyaGvhrTkjPn8aTFV3Os0Jn8zd0Ij0ooLr0UOTW6HcI");
+    await doc.useServiceAccountAuth({
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY,
+    });
+    await doc.loadInfo();
+    console.log(doc.title);
     const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
+    member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :>");
     member.roles.add(pubRole);
     
-});
-
-client.on('message', message => {
-    const patt = /^[0-9]{6}$/;
-    if (message.channel.name === "verify" && message.content.match(patt)) {
-       
-    }
+    
 });
 
 // THIS  MUST  BE  THIS  WAY
