@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const GoogleSpreadsheet = require('google-spreadsheet');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 client.on('ready', () => {
     console.log('I am ready!');
