@@ -28,8 +28,8 @@ client.on('guildMemberAdd', (member) => {
                             .then(
                                 () => {
                                     var cells = sheet["_cells"];
-                                    if (cells.includes(member.id)) {
-                                        console.log(cells.includes(member.id));
+                                    console.log(cells.includes(member.id));
+                                    if (cells.includes(member.id)) {                                       
                                         const memRole = member.guild.roles.cache.find(r => r.name === "Member");
                                         member.roles.add(memRole);
                                     }
