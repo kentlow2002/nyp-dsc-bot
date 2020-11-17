@@ -6,6 +6,10 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+function checkID(inputID, checkID) {
+    return inputID == checkID;
+}
+
 //add public role upon entry
 client.on('guildMemberAdd', (member) => {
     var sheet;
@@ -23,7 +27,8 @@ client.on('guildMemberAdd', (member) => {
                         sheet.loadCells("B2:B")
                             .then(
                                 () => {
-                                    console.log(sheet["_cells"]);
+                                    var cells = sheet["_cells"];
+                                    cells.includes(member.id);
                                 }
                             )
                             .catch(
