@@ -28,7 +28,7 @@ client.on('guildMemberAdd', (member) => {
                             .then(
                                 () => {
                                     var cells = sheet["_cells"];
-                                    console.log(sheet.getValues());
+                                    console.log(cells);
                                     console.log(cells.includes(member.id));
                                     if (cells.includes(member.id)) {                                       
                                         const memRole = member.guild.roles.cache.find(r => r.name === "Member");
