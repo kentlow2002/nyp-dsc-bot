@@ -27,7 +27,12 @@ client.on('guildMemberAdd', (member) => {
                         sheet.loadCells("B2:B")
                             .then(
                                 () => {
-                                    var cells = sheet["_cells"];
+                                    var cells = sheet["_cells"][]
+                                        .map(
+                                            (x) => {
+                                                return x["_rawData"];
+                                            }
+                                        );
                                     console.log(cells);
                                     console.log(cells.includes(member.id));
                                     if (cells.includes(member.id)) {                                       
