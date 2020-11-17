@@ -27,7 +27,7 @@ client.on('guildMemberAdd', (member) => {
                         sheet.loadCells("B2:B")
                             .then(
                                 () => {
-                                    var cells = sheet["_cells"][]
+                                    var cells = sheet["_cells"][0]
                                         .map(
                                             (x) => {
                                                 return x["_rawData"];
