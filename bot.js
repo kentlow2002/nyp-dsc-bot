@@ -28,7 +28,7 @@ client.on('guildMemberAdd', (member) => {
                             .then(
                                 () => {
                                     console.log(sheet);
-                                    var cells = sheet["_cells"].splice(0,1);
+                                    var cells = sheet["_cells"].splice(0, 1).map(cell => cell.value);
                                     console.log(cells);
                                     console.log(cells.includes(member.id));
                                     if (cells.includes(member.id)) {                                       
