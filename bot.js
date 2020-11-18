@@ -32,7 +32,7 @@ client.on('guildMemberAdd', (member) => {
                                     sheet["_cells"].forEach(
                                         cell => {
                                             if (cell.value) {
-                                                cells.push(cell..value);
+                                                cells.push(cell.value);
                                             }
                                         }
                                     );
