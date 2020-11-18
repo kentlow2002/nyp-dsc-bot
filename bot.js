@@ -33,6 +33,7 @@ client.on('guildMemberAdd', (member) => {
                                             return cell[1].value;
                                         }
                                     });
+                                    console.log(sheet[_cells]);
                                     console.log(cells);
                                     console.log(cells.includes(member.id));
                                     if (cells.includes(member.id)) {                                       
