@@ -29,11 +29,11 @@ client.on('guildMemberAdd', (member) => {
                                 () => {
                                     sheet["_cells"].splice(0, 1);
                                     var cells = sheet["_cells"].map(cell => {
-                                        console.log(cell[1].value);
                                         if (cell[1].value) {
                                             return cell[1].value;
                                         }
                                     });
+                                    console.log(cells);
                                     console.log(cells.includes(member.id));
                                     if (cells.includes(member.id)) {                                       
                                         const memRole = member.guild.roles.cache.find(r => r.name === "Member");
