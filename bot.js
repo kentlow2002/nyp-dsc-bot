@@ -28,12 +28,14 @@ client.on('guildMemberAdd', (member) => {
                             .then(
                                 () => {
                                     sheet["_cells"].splice(0, 1);
-                                    var cells = sheet["_cells"].filter(cell => {
-                                        console.log(cell[1].value);
-                                        if (cell[1].value) {
-                                            return cell[1].value;
+                                    var cells = [];
+                                    sheet["_cells"].forEach(
+                                        cell => {
+                                            if (cell.value) {
+                                                cells.push(cell..value);
+                                            }
                                         }
-                                    });
+                                    );
                                     console.log(sheet["_cells"][0]);
                                     console.log(cells);
                                     console.log(cells.includes(member.id));
