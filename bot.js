@@ -31,8 +31,8 @@ client.on('guildMemberAdd', (member) => {
                                     var cells = [];
                                     sheet["_cells"].forEach(
                                         cell => {
-                                            if (cell.value) {
-                                                cells.push(cell.value);
+                                            if (cell[1].value) {
+                                                cells.push(cell[1].value);
                                             }
                                         }
                                     );
