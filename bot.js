@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } = require('google-spreadsheet');
+const { GoogleSpreadsheet, GoogleSpreadsheetWorksheet, GoogleSpreadsheetCell } = require('google-spreadsheet');
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -29,7 +29,7 @@ client.on('guildMemberAdd', (member) => {
                                 () => {
                                     sheet["_cells"].splice(0, 1);
                                     console.log(sheet["_cells"]);
-                                    var cells = sheet["_cells"].map(cell => cell.value);
+                                    var cells = sheet["_cells"].map(cell => cell[1].value);
                                     console.log(cells);
                                     console.log(cells.includes(member.id));
                                     if (cells.includes(member.id)) {                                       
