@@ -53,7 +53,7 @@ client.on('guildMemberAdd', (member) => {
     )
     .catch(error => { console.log("oops doc auth fail"); console.log(error); });
     const pubRole = member.guild.roles.cache.find(r => r.name === "Public");
-    member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay here :>");
+    member.guild.channels.cache.find(ch => ch.name === "entry-logs").send("Welcome <@"+member.id+"> ! Enjoy your stay in NYP DSC :>");
     member.roles.add(pubRole);
     
     
