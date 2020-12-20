@@ -36,7 +36,8 @@ client.on('guildMemberAdd', (member) => {
                                             }
                                         }
                                     );
-                                    if (cells.includes(member.id)) {                                       
+                                    if (cells.includes(member.id)) {
+                                        console.log(cells.findIndex(member.id))
                                         const memRole = member.guild.roles.cache.find(r => r.name === "Member");
                                         member.roles.add(memRole);
                                     }
